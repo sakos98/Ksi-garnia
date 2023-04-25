@@ -1,0 +1,203 @@
+/* zadanie 1 */
+// const names = ['Kasia', 'Tomek', 'Amanda', 'Maja'];
+// console.log(names);
+// const womenNames = [];
+
+// for (const name of names) {
+// if (name.slice(-1) === 'a') {
+// womenNames.push(name);
+//     }
+// }
+// console.log(womenNames);
+
+/* zadanie 2 */
+// const employees = {
+//     john: {
+//   name: 'John Doe',
+//       salary: 3000
+//     },
+//     amanda: {
+//   name: 'Amanda Doe',
+//       salary: 4000
+//     },
+//   }
+
+//   const employesNames = [];
+//   const employesSalarys = [];
+
+//   for (const employesId in employees){
+// const employee = employees[employesId];
+
+// const name = employee.name.split(' ')[0];
+// employesNames.push(name);
+// employesSalarys.push(employee.salary);
+// console.log(employesNames, employesSalarys);
+//   }
+
+/* zadanie 3 */
+// const salaries = [2000, 3000, 1500, 6000, 3000];
+
+// let sum = 0;
+// hightesSalary = salaries[0];
+// lowestSalary = salaries[0];
+
+// for(const salary of salaries){
+//         sum += salary;
+// if(salary > hightesSalary) hightesSalary = salary;
+// if(salary < lowestSalary) lowestSalary = salary; 
+//     }
+// console.log('summary:', sum,'hightesSalary:', hightesSalary, 'LowestSalary',lowestSalary);
+
+/* zadanie 4 */
+// const persons = {
+//     john: 2000,
+//     amanda: 3000,
+//     thomas: 1500,
+//     james: 6000,
+//     claire: 3000
+// };
+// /* pierwsze rozwiązanie */
+// let sum = 0;
+// priceHightest = persons.john;
+// priceLowest = persons.john;
+
+// for (const personId in persons) {
+// const personSalary = persons[personId];
+
+// sum += personSalary;
+// if (personSalary > priceHightest) priceHightest = personSalary;
+// if (personSalary < priceLowest) priceLowest = personSalary;
+// }
+// console.log('summary:', sum, 'hightPrice:', priceHightest, 'lowestPrice: ', priceLowest);
+// /* drugie rozwiązanie */
+// covert obj to array of its values([2000, 3000, 1500...])
+// const salaries = Object.values(persons);
+
+// let suma = 0;
+// highestSalary = salaries[0];
+// lowestSalary = salaries[0];
+
+// for (const salary of salaries) {
+//     suma += salary;
+// if (salary > highestSalary) highestSalary = salary;
+// if (salary < lowestSalary) lowestSalary = salary;
+// }
+
+// console.log(suma, highestSalary, lowestSalary);
+
+/*zadanie 5 */
+// const tags = ['news', 'code', 'news', 'sport', 'hot', 'news', 'code'];
+
+// const uniqeTags = [];
+
+// for(const tag of tags) {
+// if(!uniqeTags[tag]) uniqeTags[tag] = { apperance: 1};
+// else uniqeTags[tag].apperance++;
+// }
+// console.log(uniqeTags);
+
+/* zadanie 1 */
+// Czy funkcja Baz może mieć dostęp do stałych foo i spam z zakresu funkcji Bar?
+// Czy funkcja Bar ma dostęp do stałej eggs z zakresu Baz?
+// Czy to, że stała o takiej samej nazwie (foo) jest deklarowana w dwóch zakresach (zakres globalny i zakres Bar) spowoduje jakiś błąd?
+// Gdybyśmy uruchomili funkcję Baz, to jaką wartość pokaże nam jako foo?
+// const foo = 4;
+
+// function Bar() {
+//   const foo = 5;
+//   const spam = 6;
+//   console.log(foo, spam); //console.log(foo, spam, eggs); błąd, eggs nie jest zdefiniowany
+
+//   function Baz() {
+//     const spam = 7;
+//     const eggs = 8;
+// console.log(foo, spam);
+//   }
+//   Baz();
+// }
+// Bar();
+
+/* Zadanie 4 */
+
+// function filterEmployees(arr,min, max) {
+
+// const filteredArray = [];
+// for (const empl of employees) {
+// if (empl.salary > min && empl.salary < max) {
+// filteredArray.push(empl);
+//         }
+//     }
+// return filteredArray;
+// }
+
+// const employees = [
+// { name: 'Amanda Doe', salary: 3000 },
+// { name: 'John Doe', salary: 4000 },
+// { name: 'Claire Downson', salary: 2000 },
+// { name: 'Freddie Clarkson', salary: 6000 },
+// { name: 'Thomas Delaney', salary: 8200 }
+// ];
+// const filteredEmployees = filterEmployees(employees, 2000, 8000);
+// console.log(filteredEmployees);
+// filterEmployees();
+
+
+/* zadanie 5 */
+const obj = {
+firstName: 'John',
+lastName: 'Doe'
+};
+
+function showObjectParams(obj) {
+    for (const paramId in obj) {
+        const param = obj[paramId];
+        console.log(paramId + ': ' + param);
+    }
+}
+showObjectParams(obj);
+
+//   function forEach(arr, cb) {
+//     for(const elem of arr) {
+//       cb(elem);
+//     }
+//     forEach(['John', 'Amanda', 'Thomas'], function(item) { console.log(item); });
+//   }
+// forEach(arr, cb);
+
+/* Zadanie 7 */
+function formatName(name) {
+    const firstNameAndLastName = name.split(' ');
+    let firstName = firstNameAndLastName[0];
+    let lastName = firstNameAndLastName[1];
+
+    firstName = firstName.charAt(0).toUpperCase() + firstName.substr(1).toLowerCase()
+    lastName = lastName.charAt(0).toUpperCase() + lastName.substr(1).toLowerCase()
+    return firstName + ' ' + lastName;
+}
+console.log(formatName('mIchAl SAK')); // returns Michal Sak
+
+/* Zadanie 8 */
+function getEvensInRange(start, end) {
+    const evensArray = [];
+
+    for (let i = start; i <= end; i++) {
+        if (i % 2 === 0) evensArray.push(i);
+    }
+    return evensArray;
+}
+console.log(getEvensInRange(0, 9)); // returns [0, 2, 4, 6, 8]
+console.log(getEvensInRange(7, 12)); // returns [8, 10, 12]
+
+/* zadanie 9 */
+
+function filter(arr, cb) {
+    const filteredArray = [];
+
+    for (const elem of arr) {
+        if (cb(elem)) filteredArray.push(elem);
+    }
+
+    return filteredArray;
+}
+filter([5, 6, 7], function (item) { return item % 2 === 0 });
+//   console.log(item);
